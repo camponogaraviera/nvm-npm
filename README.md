@@ -1,5 +1,5 @@
 <div align='center'>
-  <h1> NVM <br> & <br> NPM </h1>
+  <h1> SemVer & NVM & NPM & Yarn </h1>
 </div>
 
 <!-- ################################################################ -->
@@ -17,9 +17,10 @@
   - [Viewing package info](#viewing-package-info)
   - [Checking for releases](#checking-for-releases)
   - [Bump/Updating NPM packages](#bumpupdating-npm-packages)
-- [Environment Variables](#environment-variables)
-- [Creating a package.json file](#creating-a-packagejson-file)
-- [Creating a .gitignore file](#creating-a-gitignore-file)
+  - [Environment Variables](#environment-variables)
+  - [Creating a package.json file](#creating-a-packagejson-file)
+  - [Creating a .gitignore file](#creating-a-gitignore-file)
+- [Yarn Package Manager ](#yarn-package-manager)
 
 <!-- ################################################################ -->
 
@@ -34,11 +35,13 @@ Major.Minor.Patch
 ```bash
 "package": "^1.0.0", // 1.x
 "package": "~1.0.0", // 1.0.x
-"package": "1.0.0", // Exact version.
+"package": "1.0.0",  // Exact version.
 ```
 The caret (^) character tells the package manager to install any version starting with the Major version.
 
 The tilde (~) character tells the package manager to install any version starting with the Major.Minor version.
+
+---
 
 <!-- ################################################################ -->
 
@@ -82,6 +85,8 @@ Or use the latest version:
 ```bash
 nvm use node
 ```
+
+---
 
 <!-- ################################################################ -->
 
@@ -197,7 +202,7 @@ ncu -u && npm i
 
 <!-- ################################################################ -->
 
-# Environment Variables 
+## Environment Variables 
 
 The following commands are intended for execution in a Terminal interface of a Linux-like system.
 
@@ -227,7 +232,7 @@ unset NODE_ENV PORT
 
 <!-- ################################################################ -->
 
-# Creating a `package.json` file
+## Creating a `package.json` file
 
 ```bash
 npm init --yes
@@ -235,11 +240,93 @@ npm init --yes
 
 <!-- ################################################################ -->
 
-# Creating a `.gitignore` file
+## Creating a `.gitignore` file
 
 ```bash
 npm install -g gitignore && gitignore node
 ```
+
+---
+
+<!-- ################################################################ -->
+
+# Yarn Package Manager 
+
+## Installing Yarn
+
+- [Enabling Corepack, a tool shipped by default with Node.js](https://yarnpkg.com/getting-started/install):
+```bash
+corepack enable && yarn init -2
+```
+
+## Bump/Updating Yarn
+
+- [Updating Yarn](https://yarnpkg.com/getting-started/install#updating-yarn):
+```bash
+yarn set version stable && yarn install && yarn -v
+```
+
+## Installing Yarn packages
+
+- Install all package dependencies from the `package.json` file:
+```bash
+yarn install
+```
+
+### Install a package as a development dependency
+```bash
+yarn add <dev-dependency> [--dev/-D]
+```
+
+### Install a package as a production dependency
+```bash
+yarn add <production-dependency>
+```
+
+## Uninstalling a package
+```bash
+yarn remove <package_name>
+```
+
+## Listing installed dependencies
+```bash
+npm ls --depth 0
+```
+
+## Viewing package info
+```bash
+yarn info <package_name>
+```
+
+## Bump/Updating Yarn packages
+
+- Updating a package to a specific version:
+```bash
+yarn add <package_name>@<specific_version>
+```
+
+- Updating outdated Yarn packages version:
+```bash
+yarn upgrade-interactive [--latest]
+```
+
+## Environment Variables
+
+The Yarn commands for setting, unsetting, and simulating environment variables are the same as for npm.
+
+## Creating a `package.json` file
+
+```bash
+yarn init --yes
+```
+
+## Creating a `.gitignore` file
+
+```bash
+yarn add gitignore-parser && gitignore node
+```
+
+---
 
 # References
 
